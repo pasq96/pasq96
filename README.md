@@ -1,7 +1,7 @@
 <h1 align="center">Hi there! I'm Pasquale 👋👋</h1>
 <h4 align="center">A passionate developer from Naples, Italy</h4>
 
-- 🔭 I’m currently working on **my Data Science Master's Degree**
+- 🔭 I’m graduated in **"Data Science & Machine Learning" Master's Degree**
 
 - 👨‍💻 Can you see all of my projects on [https://github.com/pasq96?tab=repositories](https://github.com/pasq96?tab=repositories)
 
