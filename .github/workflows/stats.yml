@@ -1,0 +1,139 @@
+name: Generate GitHub Stats
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@master
+
+      - name: Setup Python
+        uses: actions/setup-python@master
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Generate Top Languages SVG
+        env:
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+        run: |
+          python3 - << 'EOF'
+          import os
+          import requests
+          import math
+
+          token = os.environ.get("PAT_TOKEN")
+          username = "pasq96"
+
+          query = """
+          query($user: String!) {
+            user(login: $user) {
+              repositories(first: 100, ownerAffiliations: OWNER, isFork: false) {
+                nodes {
+                  name
+                  isPrivate
+                  languages(first: 10, orderBy: {field: SIZE, direction: DESC}) {
+                    edges {
+                      size
+                      node {
+                        name
+                        color
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          """
+
+          headers = {"Authorization": f"bearer {token}"} if token else {}
+          response = requests.post("https://api.github.com/graphql", json={"query": query, "variables": {"user": username}}, headers=headers)
+
+          if response.status_code != 200:
+              raise Exception(f"Query failed: {response.status_code}, {response.text}")
+
+          data = response.json()
+          repos = data["data"]["user"]["repositories"]["nodes"]
+
+          lang_sizes = {}
+          lang_colors = {}
+          total_size = 0
+
+          for repo in repos:
+              for edge in repo["languages"]["edges"]:
+                  l_name = edge["node"]["name"]
+                  l_color = edge["node"]["color"] or "#858585"
+                  l_size = edge["size"]
+
+                  lang_sizes[l_name] = lang_sizes.get(l_name, 0) + l_size
+                  lang_colors[l_name] = l_color
+                  total_size += l_size
+
+          sorted_langs = sorted(lang_sizes.items(), key=lambda x: x[1], reverse=True)[:6]
+
+          # Costruzione SVG
+          svg_width = 300
+          svg_height = 185
+          
+          svg_content = f'''<svg width="{svg_width}" height="{svg_height}" viewBox="0 0 {svg_width} {svg_height}" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <style>
+              .header {{ font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif; fill: #70a5fd; }}
+              .lang-name {{ font: 400 11px 'Segoe UI', Ubuntu, Sans-Serif; fill: #e4e2e2; }}
+              .stat {{ font: 600 11px 'Segoe UI', Ubuntu, Sans-Serif; fill: #e4e2e2; }}
+            </style>
+            <rect width="{svg_width}" height="{svg_height}" rx="4.5" fill="#141321" stroke="#e4e2e2" stroke-opacity="0.1"/>
+            <text x="25" y="35" class="header">Most Used Languages</text>
+            <g transform="translate(25, 50)">
+          '''
+
+          # Progress bar distribuita
+          bar_x = 0
+          bar_width = 250
+          bar_svg = f'<g transform="translate(0, 0)">'
+          for name, size in sorted_langs:
+              pct = (size / total_size) if total_size > 0 else 0
+              w = pct * bar_width
+              bar_svg += f'<rect x="{bar_x}" y="0" width="{w}" height="8" fill="{lang_colors[name]}"/>'
+              bar_x += w
+          bar_svg += '</g>'
+          
+          svg_content += bar_svg
+
+          # Lista dei linguaggi su due colonne
+          y_offset = 25
+          for i, (name, size) in enumerate(sorted_langs):
+              pct = (size / total_size * 100) if total_size > 0 else 0
+              col = i % 2
+              row = i // 2
+              x_pos = col * 130
+              y_pos = y_offset + (row * 25)
+
+              svg_content += f'''
+              <g transform="translate({x_pos}, {y_pos})">
+                <circle cx="5" cy="6" r="5" fill="{lang_colors[name]}"/>
+                <text x="15" y="10" class="lang-name">{name} <tspan class="stat">{pct:.1f}%</tspan></text>
+              </g>
+              '''
+
+          svg_content += '</g></svg>'
+
+          os.makedirs("generated", exist_ok=True)
+          with open("generated/top-langs.svg", "w", encoding="utf-8") as f:
+              f.write(svg_content)
+          EOF
+
+      - name: Commit generated SVG
+        uses: stefanzweifel/git-auto-commit-action@master
+        with:
+          commit_message: "chore: update github stats"
