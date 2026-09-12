@@ -1,0 +1,30 @@
+<svg width="300" height="185" viewBox="0 0 300 185" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .header { font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif; fill: #70a5fd; }
+    .lang-name { font: 400 11px 'Segoe UI', Ubuntu, Sans-Serif; fill: #e4e2e2; }
+    .stat { font: 600 11px 'Segoe UI', Ubuntu, Sans-Serif; fill: #e4e2e2; }
+  </style>
+  <rect width="300" height="185" rx="4.5" fill="#141321" stroke="#e4e2e2" stroke-opacity="0.1"/>
+  <text x="25" y="35" class="header">Most Used Languages</text>
+  <g transform="translate(25, 50)">
+<g transform="translate(0, 0)"><rect x="0" y="0" width="120.3096484367166" height="8" fill="#F05138"/><rect x="120.3096484367166" y="0" width="68.33223031105229" height="8" fill="#3572A5"/><rect x="188.64187874776889" y="0" width="59.5130658002928" height="8" fill="#DA5B0B"/><rect x="248.15494454806168" y="0" width="1.8450554519383109" height="8" fill="#C1F12E"/></g>
+    <g transform="translate(0, 25)">
+      <circle cx="5" cy="6" r="5" fill="#F05138"/>
+      <text x="15" y="10" class="lang-name">Swift <tspan class="stat">48.1%</tspan></text>
+    </g>
+    
+    <g transform="translate(130, 25)">
+      <circle cx="5" cy="6" r="5" fill="#3572A5"/>
+      <text x="15" y="10" class="lang-name">Python <tspan class="stat">27.3%</tspan></text>
+    </g>
+    
+    <g transform="translate(0, 50)">
+      <circle cx="5" cy="6" r="5" fill="#DA5B0B"/>
+      <text x="15" y="10" class="lang-name">Jupyter Notebook <tspan class="stat">23.8%</tspan></text>
+    </g>
+    
+    <g transform="translate(130, 50)">
+      <circle cx="5" cy="6" r="5" fill="#C1F12E"/>
+      <text x="15" y="10" class="lang-name">Batchfile <tspan class="stat">0.7%</tspan></text>
+    </g>
+    </g></svg>
