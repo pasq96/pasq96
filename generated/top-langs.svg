@@ -7,29 +7,29 @@
   <rect width="300" height="185" rx="4.5" fill="#141321" stroke="#e4e2e2" stroke-opacity="0.1"/>
   <text x="25" y="35" class="header">Most Used Languages</text>
   <g transform="translate(25, 50)">
-<g transform="translate(0, 0)"><rect x="0" y="0" width="157.93933888691953" height="8" fill="#A97BFF"/><rect x="157.93933888691953" y="0" width="44.30314309346568" height="8" fill="#F05138"/><rect x="202.2424819803852" y="0" width="25.162841191067" height="8" fill="#3572A5"/><rect x="227.4053231714522" y="0" width="21.91524872976486" height="8" fill="#DA5B0B"/><rect x="249.32057190121708" y="0" width="0.6794280987829375" height="8" fill="#C1F12E"/></g>
+<g transform="translate(0, 0)"><rect x="0" y="0" width="167.396951193249" height="8" fill="#A97BFF"/><rect x="167.396951193249" y="0" width="39.75177504696461" height="8" fill="#F05138"/><rect x="207.14872624021362" y="0" width="22.577802221832002" height="8" fill="#3572A5"/><rect x="229.72652846204562" y="0" width="19.663842715763877" height="8" fill="#DA5B0B"/><rect x="249.3903711778095" y="0" width="0.6096288221904892" height="8" fill="#C1F12E"/></g>
     <g transform="translate(0, 25)">
       <circle cx="5" cy="6" r="5" fill="#A97BFF"/>
-      <text x="15" y="10" class="lang-name">Kotlin <tspan class="stat">63.2%</tspan></text>
+      <text x="15" y="10" class="lang-name">Kotlin <tspan class="stat">67.0%</tspan></text>
     </g>
     
     <g transform="translate(130, 25)">
       <circle cx="5" cy="6" r="5" fill="#F05138"/>
-      <text x="15" y="10" class="lang-name">Swift <tspan class="stat">17.7%</tspan></text>
+      <text x="15" y="10" class="lang-name">Swift <tspan class="stat">15.9%</tspan></text>
     </g>
     
     <g transform="translate(0, 50)">
       <circle cx="5" cy="6" r="5" fill="#3572A5"/>
-      <text x="15" y="10" class="lang-name">Python <tspan class="stat">10.1%</tspan></text>
+      <text x="15" y="10" class="lang-name">Python <tspan class="stat">9.0%</tspan></text>
     </g>
     
     <g transform="translate(130, 50)">
       <circle cx="5" cy="6" r="5" fill="#DA5B0B"/>
-      <text x="15" y="10" class="lang-name">Jupyter Notebook <tspan class="stat">8.8%</tspan></text>
+      <text x="15" y="10" class="lang-name">Jupyter Notebook <tspan class="stat">7.9%</tspan></text>
     </g>
     
     <g transform="translate(0, 75)">
       <circle cx="5" cy="6" r="5" fill="#C1F12E"/>
-      <text x="15" y="10" class="lang-name">Batchfile <tspan class="stat">0.3%</tspan></text>
+      <text x="15" y="10" class="lang-name">Batchfile <tspan class="stat">0.2%</tspan></text>
     </g>
     </g></svg>
