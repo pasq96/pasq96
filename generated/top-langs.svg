@@ -7,25 +7,25 @@
   <rect width="300" height="185" rx="4.5" fill="#141321" stroke="#e4e2e2" stroke-opacity="0.1"/>
   <text x="25" y="35" class="header">Most Used Languages</text>
   <g transform="translate(25, 50)">
-<g transform="translate(0, 0)"><rect x="0" y="0" width="170.0992850069384" height="8" fill="#A97BFF"/><rect x="170.0992850069384" y="0" width="38.451307722630126" height="8" fill="#F05138"/><rect x="208.55059272956854" y="0" width="21.83917623569453" height="8" fill="#3572A5"/><rect x="230.38976896526307" y="0" width="19.020546035490064" height="8" fill="#DA5B0B"/><rect x="249.41031500075314" y="0" width="0.5896849992468698" height="8" fill="#C1F12E"/></g>
+<g transform="translate(0, 0)"><rect x="0" y="0" width="192.27991054271678" height="8" fill="#A97BFF"/><rect x="192.27991054271678" y="0" width="27.777134681366306" height="8" fill="#F05138"/><rect x="220.05704522408308" y="0" width="15.776569785478472" height="8" fill="#3572A5"/><rect x="235.83361500956156" y="0" width="13.740397927480334" height="8" fill="#DA5B0B"/><rect x="249.57401293704189" y="0" width="0.42598706295810973" height="8" fill="#C1F12E"/></g>
     <g transform="translate(0, 25)">
       <circle cx="5" cy="6" r="5" fill="#A97BFF"/>
-      <text x="15" y="10" class="lang-name">Kotlin <tspan class="stat">68.0%</tspan></text>
+      <text x="15" y="10" class="lang-name">Kotlin <tspan class="stat">76.9%</tspan></text>
     </g>
     
     <g transform="translate(130, 25)">
       <circle cx="5" cy="6" r="5" fill="#F05138"/>
-      <text x="15" y="10" class="lang-name">Swift <tspan class="stat">15.4%</tspan></text>
+      <text x="15" y="10" class="lang-name">Swift <tspan class="stat">11.1%</tspan></text>
     </g>
     
     <g transform="translate(0, 50)">
       <circle cx="5" cy="6" r="5" fill="#3572A5"/>
-      <text x="15" y="10" class="lang-name">Python <tspan class="stat">8.7%</tspan></text>
+      <text x="15" y="10" class="lang-name">Python <tspan class="stat">6.3%</tspan></text>
     </g>
     
     <g transform="translate(130, 50)">
       <circle cx="5" cy="6" r="5" fill="#DA5B0B"/>
-      <text x="15" y="10" class="lang-name">Jupyter Notebook <tspan class="stat">7.6%</tspan></text>
+      <text x="15" y="10" class="lang-name">Jupyter Notebook <tspan class="stat">5.5%</tspan></text>
     </g>
     
     <g transform="translate(0, 75)">
